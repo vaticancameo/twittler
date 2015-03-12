@@ -1,0 +1,19 @@
+body {
+	width: 500px;
+	margin: 10px auto;
+}
+div {
+	padding: 20px;
+	border: 2px solid #cccccc;
+	margin: 5px 0;
+}
+p{ 
+	margin: 3px 0;
+}
+.user {
+	font-weight: bold;
+}
+.highlighted {
+	color: #4444ff;
+	text-decoration: underline;
+}
