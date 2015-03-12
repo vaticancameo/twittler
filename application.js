@@ -72,6 +72,7 @@ $(document).ready(function(){
         };
 
         $("button").click(function() {
+          $(".boxes").remove();
           latest = streams.home.length;
           displayNewTweet();
           userInteraction();
