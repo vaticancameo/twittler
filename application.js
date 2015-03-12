@@ -20,7 +20,7 @@ $(document).ready(function(){
           var index = 0;
           while (index < latest) {
             var tweet = streams.home[index];
-            var $container = $('<div></div>');
+            var $container = $('<div class="boxes"></div>');
             var $tweet = $('<span class="content"></span>');
             var $timeTweeted = $('<p></p>');
             var $user = $('<span class="user"></span>');
@@ -35,6 +35,25 @@ $(document).ready(function(){
           };
         };
 
+        var displayTimeline = function(username) {
+          var index = 0;
+          var usertweets = streams.users[username];
+          while (index < usertweets.length) {
+            var tweet = streams.users[username][index];
+            var $container = $('<div class="boxes"></div>');
+            var $tweet = $('<span class="content"></span>');
+            var $timeTweeted = $('<p></p>');
+            var $user = $('<span class="user"></span>');
+            $user.text("@" + tweet.user);
+            $timeTweeted.text("Tweeted at " + timestamp(tweet.created_at));
+            $tweet.text(': ' + tweet.message);
+            $container.insertAfter($body);
+            $user.appendTo($container);
+            $tweet.appendTo($container);
+            $timeTweeted.appendTo($container);
+            index += 1;
+        }
+      };
 
         var userInteraction = function() {
           $(".user").on("mouseenter", function() {
@@ -46,7 +65,9 @@ $(document).ready(function(){
           });
 
           $(".user").on("click", function() {
-            $(this).closest("div").find("section").slideToggle();
+            $(".boxes").remove();
+            displayTimeline($(this).text().slice(1));
+            userInteraction();
           });
         };
 

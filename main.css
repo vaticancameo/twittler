@@ -3,7 +3,6 @@ body {
 	font-family: Helvetica, Arial, serif;
 	text-align: center;
 }
-
 h1 {
 	font-family: serif;
 	font-size: 36px;
@@ -23,8 +22,6 @@ p {
 	text-align: right;
 	font-size: 14px;
 }
-
-
 .user {
 	font-weight: bold;
 }
